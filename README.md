@@ -1,5 +1,5 @@
 # 📱 Weatherly Flutter App⚡
-# 👨‍💻 Data provided by openweather 
+# 👨‍💻 Data provided by OpenWeatherMap
 
 # ✨✨ Features are ✨✨
 
