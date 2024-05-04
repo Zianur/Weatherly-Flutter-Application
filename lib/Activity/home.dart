@@ -56,6 +56,17 @@ class _HomeState extends State<Home> {
                         child: Container(
                       margin: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: TextField(
+
+                        //if go or search button is clicked from the key board
+                        textInputAction: TextInputAction.go,
+                        onSubmitted: (value) {
+                           if (value.replaceAll(" ", "") != "") {
+                          Navigator.pushReplacementNamed(context, "/loading",
+                              arguments: {"city_name": value});
+                        }
+                        },
+
+                        //controller is used to access the value of textfield
                         controller: searchController,
                         decoration: InputDecoration(
                             hintText: "Type City Name",
@@ -66,9 +77,7 @@ class _HomeState extends State<Home> {
                       onTap: () {
                         if (searchController.text.replaceAll(" ", "") != "") {
                           Navigator.pushReplacementNamed(context, "/loading",
-                              arguments: {
-                                "city_name": searchController.text
-                              });
+                              arguments: {"city_name": searchController.text});
                         }
                       },
                       child: Container(
@@ -76,8 +85,8 @@ class _HomeState extends State<Home> {
                         padding: EdgeInsets.all(8),
                         margin: EdgeInsets.fromLTRB(0, 0, 5, 0),
                         decoration: BoxDecoration(
-                          color: Colors.yellow,
-                          borderRadius: BorderRadius.circular(30)),
+                            color: Colors.yellow,
+                            borderRadius: BorderRadius.circular(30)),
                       ),
                     ),
                   ],
